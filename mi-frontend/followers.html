@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Seguidores</title>
+
+  <!-- Bootstrap 5 CSS (CDN) -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  >
+</head>
+<body>
+
+  <!-- Navbar / Menú principal (igual que en index) -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Examen Microservicios</a>
+      <button 
+        class="navbar-toggler" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbarNav" 
+        aria-controls="navbarNav" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <!-- Enlace a la página de Gestión de Usuarios -->
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Usuarios</a>
+          </li>
+          <!-- Enlace a la página de Gestión de Publicaciones -->
+          <li class="nav-item">
+            <a class="nav-link" href="posts.html">Publicaciones</a>
+          </li>
+          <!-- Enlace a la página de Gestión de Seguidores -->
+          <li class="nav-item">
+            <a class="nav-link" href="followers.html">Seguidores</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container my-4">
+    <h1 class="mb-4 text-center">Gestión de Seguidores</h1>
+    
+    <!-- Sección para la lista de seguidores -->
+    <div id="follower-list" class="mb-5">
+      <!-- Aquí se inyectará la tabla de seguidores -->
+    </div>
+
+    <!-- Card para el formulario de creación/edición de seguidores -->
+    <div class="card">
+      <div class="card-body">
+        <h2 id="form-title" class="card-title mb-3">Agregar Seguidor</h2>
+        
+        <form id="follower-form">
+          <!-- Campo oculto para almacenar el ID al editar -->
+          <input type="hidden" id="id" name="id">
+
+          <div class="mb-3">
+            <label for="userId" class="form-label">ID del Usuario</label>
+            <input 
+              type="text" 
+              id="userId" 
+              name="userId"
+              class="form-control" 
+              placeholder="ID del usuario que será seguido"
+              required
+            >
+          </div>
+
+          <div class="mb-3">
+            <label for="followerUserId" class="form-label">ID del Seguidor</label>
+            <input 
+              type="text" 
+              id="followerUserId" 
+              name="followerUserId"
+              class="form-control"
+              placeholder="ID del usuario que sigue"
+              required
+            >
+          </div>
+
+          <div class="mb-3">
+            <label for="followDate" class="form-label">Fecha de seguimiento</label>
+            <input 
+              type="datetime-local" 
+              id="followDate" 
+              name="followDate"
+              class="form-control"
+              placeholder="Fecha y hora en que comenzó el seguimiento"
+            >
+          </div>
+
+          <div class="mb-3">
+            <label for="status" class="form-label">Estado</label>
+            <input 
+              type="text" 
+              id="status" 
+              name="status"
+              class="form-control"
+              placeholder="Ej: pending, accepted, blocked..."
+            >
+          </div>
+
+          <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <!-- Botón para cancelar la edición (oculto por defecto) -->
+            <button 
+              type="button" 
+              id="cancel-button" 
+              class="btn btn-secondary" 
+              style="display: none;"
+            >
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script principal para la app de seguidores -->
+  <script src="scripts/followers.js"></script>
+
+  <!-- Bootstrap 5 JS (opcional si usas componentes que requieran JS) -->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+  </script>
+</body>
+</html>
